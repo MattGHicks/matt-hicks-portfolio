@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Matt Hicks Portfolio - DigitalFish
 
-## Getting Started
+A modern, dual-brand portfolio website showcasing both **DigitalFish** (creative business) and **Matt Hicks** (personal brand). Built with Next.js 14, TypeScript, and optimized for Figma-to-code AI workflows.
 
-First, run the development server:
+## 🎯 Project Vision
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This portfolio represents a unique dual-brand approach where Matt Hicks showcases both his freelance design business (DigitalFish) and personal creative work. The site is designed to:
+
+- Attract high-quality clients for design services
+- Showcase creative process and project case studies  
+- Demonstrate expertise in Figma, UI/UX, and modern web technologies
+- Provide seamless contact and collaboration opportunities
+
+## 🚀 Live Site
+
+- **Development**: http://localhost:3000
+- **Production**: Coming soon
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Components**: Custom UI library + Radix UI
+- **Icons**: Lucide React
+- **Development**: ESLint, Prettier
+
+## 🎨 Brand Identity
+
+### DigitalFish (Business Brand)
+- **Colors**: Cyan (#00D4FF) + Blue (#0066CC)
+- **Focus**: Professional design services, client work
+- **Services**: Brand identity, UI/UX, websites, Figma services
+
+### Matt Hicks (Personal Brand)  
+- **Colors**: Orange (#FF6B35) + Navy (#2C3E50)
+- **Focus**: Personal projects, creative exploration, thought leadership
+- **Skills**: Figma mastery, design systems, creative direction
+
+## 📂 Project Structure
+
+```
+src/
+├── app/                 # Next.js pages
+├── components/
+│   ├── ui/             # Reusable components
+│   ├── layout/         # Navigation, footer
+│   └── sections/       # Homepage sections
+├── data/               # Brand configuration
+└── lib/                # Utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Current Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+✅ **Foundation Complete**
+- Responsive navigation with mobile menu
+- Animated hero section with dual-brand presentation
+- Modern UI component system
+- SEO optimization
+- Production-ready build system
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🚧 **Coming Next** (Phase 2)
+- About section storytelling
+- Portfolio project showcase
+- Services breakdown
+- Client testimonials
+- Contact forms
 
-## Learn More
+## 🔄 Development Workflow
 
-To learn more about Next.js, take a look at the following resources:
+### Figma-to-Code Integration
+This project is optimized for AI-powered design-to-code workflows:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Design in Figma** using Relume component patterns
+2. **Convert with AI tools**:
+   - Builder.io Visual Copilot
+   - Figma Make
+   - Anima
+3. **Refine and customize** generated code
+4. **Deploy** with modern CI/CD
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Development Commands
 
-## Deploy on Vercel
+```bash
+# Start development
+npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Build production
+npm run build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Format code  
+npx prettier --write .
+
+# Lint code
+npm run lint
+```
+
+## 🎨 Design Philosophy
+
+**Modern Minimalism**: Clean layouts with purposeful animations
+**Dual-Brand Harmony**: Seamless integration of business and personal identity
+**Performance First**: Optimized for speed and accessibility
+**Mobile Excellence**: Mobile-first responsive design
+
+## 📞 Contact & Collaboration
+
+This portfolio showcases Matt's availability for:
+- UI/UX design projects
+- Brand identity development  
+- Figma design systems
+- Creative consultation
+- Web design and development
+
+## 📈 Roadmap
+
+### Phase 1: Foundation ✅
+- [x] Project setup and architecture
+- [x] Brand identity system
+- [x] Hero section and navigation
+- [x] Production build optimization
+
+### Phase 2: Content Expansion
+- [ ] About page with personal story
+- [ ] Portfolio showcase with case studies
+- [ ] Services pages with detailed offerings
+- [ ] Contact forms and availability calendar
+
+### Phase 3: Advanced Features  
+- [ ] CMS integration for easy updates
+- [ ] Blog for design insights
+- [ ] Performance monitoring
+- [ ] A/B testing capabilities
+
+### Phase 4: Launch & Growth
+- [ ] Domain setup and deployment
+- [ ] SEO optimization and monitoring
+- [ ] Analytics integration
+- [ ] Client feedback system
+
+---
+
+**Built with passion by Matt Hicks | DigitalFish** 🐠
