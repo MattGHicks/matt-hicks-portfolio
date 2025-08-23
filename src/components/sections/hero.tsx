@@ -118,11 +118,11 @@ export default function Hero() {
             className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-digitalfish-primary">50+</div>
+              <div className="text-3xl font-bold text-digitalfish-primary">75+</div>
               <div className="text-muted-foreground">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-matt-primary">5+</div>
+              <div className="text-3xl font-bold text-matt-primary">7+</div>
               <div className="text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center">
