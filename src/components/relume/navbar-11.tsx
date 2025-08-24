@@ -5,7 +5,7 @@ import React from "react";
 const imgLogoWide2 = "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=80&fit=crop&crop=center";
 const imgChevronDown = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E";
 
-function CompanyLogo({ alternate = "False" }: { alternate?: "False" | "True" }) {
+function CompanyLogo() {
   return (
     <div className="relative size-full">
       <div className="absolute h-9 top-1/2 translate-x-[-50%] translate-y-[-50%] w-[70px]" style={{ left: "calc(50% - 0.333px)" }}>

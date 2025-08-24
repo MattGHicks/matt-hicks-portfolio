@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
@@ -197,7 +197,7 @@ export default function AboutSection() {
                       style={{ fontFamily: "'PT Sans', sans-serif" }}
                     >
                       <p className="leading-[1.5]">
-                        DigitalFish offers professional design services that elevate your brand's digital presence.
+                        DigitalFish offers professional design services that elevate your brand&apos;s digital presence.
                       </p>
                     </div>
                   </motion.div>

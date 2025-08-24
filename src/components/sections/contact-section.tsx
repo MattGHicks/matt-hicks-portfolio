@@ -155,7 +155,7 @@ export default function ContactSection() {
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
               transition={{ delay: 1.2, duration: 0.5 }}
             >
-              Let's Connect!
+              Let&apos;s Connect!
             </motion.div>
           </motion.div>
 
@@ -208,7 +208,7 @@ export default function ContactSection() {
                   variants={formVariants}
                   custom={0}
                 >
-                  <p className="leading-[1.5]">We'd love to hear from you!</p>
+                  <p className="leading-[1.5]">We&apos;d love to hear from you!</p>
                 </motion.div>
               </div>
             </div>

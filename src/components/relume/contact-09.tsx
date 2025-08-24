@@ -24,7 +24,7 @@ export function Contact9() {
                   <p className="leading-[1.2]">Get in Touch</p>
                 </div>
                 <div className="font-['PT_Sans'] not-italic relative shrink-0 text-[20px] w-full">
-                  <p className="leading-[1.5]">We'd love to hear from you!</p>
+                  <p className="leading-[1.5]">We&apos;d love to hear from you!</p>
                 </div>
               </div>
             </div>

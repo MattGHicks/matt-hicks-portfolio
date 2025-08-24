@@ -2,12 +2,6 @@
 
 import React from "react";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
-
-// Placeholder images - will be replaced with actual architectural renderings
-const modernHome = "/images/modern-home.jpg";
-const urbanCenter = "/images/urban-center.jpg";
-const chiceOffice = "/images/chic-office.jpg";
 
 function ChevronRightIcon() {
   return <ChevronRight className="size-6 text-[#0c0805]" />;

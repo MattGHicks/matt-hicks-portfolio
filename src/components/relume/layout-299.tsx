@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ChevronRight as ChevronRightIcon, Star, Users, Zap, Award } from "lucide-react";
+import { ChevronRight as ChevronRightIcon, Star, Users } from "lucide-react";
 
 
 function ChevronRight() {

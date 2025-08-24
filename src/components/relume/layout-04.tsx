@@ -44,7 +44,7 @@ export function Layout4() {
                       <p className="leading-[1.4]">Dual Brand</p>
                     </div>
                     <div className="font-['PT_Sans'] not-italic relative shrink-0 text-[18px] w-full">
-                      <p className="leading-[1.5]">DigitalFish offers professional design services that elevate your brand's digital presence.</p>
+                      <p className="leading-[1.5]">DigitalFish offers professional design services that elevate your brand&apos;s digital presence.</p>
                     </div>
                   </div>
                   <div className="basis-0 content-stretch flex flex-col gap-4 grow items-start justify-start leading-[0] min-h-px min-w-px relative shrink-0 text-[#0c0805]">

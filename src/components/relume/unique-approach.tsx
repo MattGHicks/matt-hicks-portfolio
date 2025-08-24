@@ -3,8 +3,6 @@
 import React from "react";
 import { ArrowRight, Palette, Code, Users, Zap } from "lucide-react";
 
-// Service icons - we'll use different ones for variety
-const serviceIcons = [Palette, Code, Users, Zap];
 
 export function UniqueApproach() {
   return (

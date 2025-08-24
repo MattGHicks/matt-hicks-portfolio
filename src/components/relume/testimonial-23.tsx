@@ -8,9 +8,6 @@ const img4 = "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120
 const imgAvatarImage = "https://images.unsplash.com/photo-1494790108755-2616b612b7c5?w=48&h=48&fit=crop&crop=face";
 const imgAvatarImage1 = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face";
 const imgAvatarImage2 = "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=48&h=48&fit=crop&crop=face";
-const imgAvatarImage3 = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=48&h=48&fit=crop&crop=face";
-const imgAvatarImage4 = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=48&h=48&fit=crop&crop=face";
-const imgAvatarImage5 = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=48&h=48&fit=crop&crop=face";
 const imgDot = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' fill='%23103E39'%3E%3Ccircle cx='4' cy='4' r='4'/%3E%3C/svg%3E";
 const imgDot1 = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' fill='%23cccccc'%3E%3Ccircle cx='4' cy='4' r='4'/%3E%3C/svg%3E";
 
@@ -64,7 +61,7 @@ export function Testimonial23() {
                 </div>
                 <div className="content-stretch flex flex-col gap-6 items-start justify-start relative shrink-0 w-full">
                   <div className="font-['PT_Sans'] leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[20px] w-full">
-                    <p className="leading-[1.5]">"Working with Matt was a game-changer for our project."</p>
+                    <p className="leading-[1.5]">&ldquo;Working with Matt was a game-changer for our project.&rdquo;</p>
                   </div>
                   <div className="content-stretch flex gap-4 items-center justify-start relative shrink-0 w-full">
                     <div className="relative shrink-0 size-12">
@@ -100,7 +97,7 @@ export function Testimonial23() {
                 </div>
                 <div className="content-stretch flex flex-col gap-6 items-start justify-start relative shrink-0 w-full">
                   <div className="font-['PT_Sans'] leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[20px] w-full">
-                    <p className="leading-[1.5]">"The attention to detail was remarkable and inspiring."</p>
+                    <p className="leading-[1.5]">&ldquo;The attention to detail was remarkable and inspiring.&rdquo;</p>
                   </div>
                   <div className="content-stretch flex gap-4 items-center justify-start relative shrink-0 w-full">
                     <div className="relative shrink-0 size-12">
@@ -136,7 +133,7 @@ export function Testimonial23() {
                 </div>
                 <div className="content-stretch flex flex-col gap-6 items-start justify-start relative shrink-0 w-full">
                   <div className="font-['PT_Sans'] leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[20px] w-full">
-                    <p className="leading-[1.5]">"Matt's vision brought our ideas to life beautifully."</p>
+                    <p className="leading-[1.5]">&ldquo;Matt&apos;s vision brought our ideas to life beautifully.&rdquo;</p>
                   </div>
                   <div className="content-stretch flex gap-4 items-center justify-start relative shrink-0 w-full">
                     <div className="relative shrink-0 size-12">

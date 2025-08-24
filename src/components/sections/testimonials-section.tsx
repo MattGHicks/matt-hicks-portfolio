@@ -132,10 +132,6 @@ export default function TestimonialsSection() {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
-  const getCurrentTestimonials = () => {
-    const start = currentSlide * itemsPerSlide;
-    return testimonials.slice(start, start + itemsPerSlide);
-  };
 
   return (
     <div className="bg-[#d4ebe8] box-border content-stretch flex flex-col gap-20 items-center justify-start px-16 py-28 relative w-full overflow-hidden" ref={ref}>
@@ -280,7 +276,7 @@ export default function TestimonialsSection() {
                               className="leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[20px] w-full" 
                               style={{ fontFamily: "'PT Sans', sans-serif" }}
                             >
-                              <p className="leading-[1.5]">"{testimonial.quote}"</p>
+                              <p className="leading-[1.5]">&ldquo;{testimonial.quote}&rdquo;</p>
                             </div>
 
                             {/* Avatar and Info */}
