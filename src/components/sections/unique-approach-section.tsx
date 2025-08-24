@@ -19,11 +19,7 @@ export default function UniqueApproachSection() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
+      opacity: 1
     }
   };
 
@@ -36,11 +32,7 @@ export default function UniqueApproachSection() {
     visible: {
       opacity: 1,
       x: 0,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
+      y: 0
     }
   };
 
@@ -53,11 +45,7 @@ export default function UniqueApproachSection() {
     visible: {
       opacity: 1,
       x: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
+      scale: 1
     }
   };
 
@@ -67,16 +55,11 @@ export default function UniqueApproachSection() {
       y: 40,
       x: 20
     },
-    visible: (index) => ({
+    visible: {
       opacity: 1,
       y: 0,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.4 + (index * 0.15),
-        ease: [0.25, 0.1, 0.25, 1]
-      }
-    })
+      x: 0
+    }
   };
 
   const iconVariants = {
@@ -86,11 +69,7 @@ export default function UniqueApproachSection() {
     },
     visible: {
       scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
+      rotate: 0
     }
   };
 
@@ -182,8 +161,7 @@ export default function UniqueApproachSection() {
                       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                       transition={{
                         duration: 0.6,
-                        delay: 0.1 + (index * 0.08),
-                        ease: [0.25, 0.1, 0.25, 1]
+                        delay: 0.1 + (index * 0.08)
                       }}
                       whileHover={{
                         scale: 1.02,
@@ -250,7 +228,6 @@ export default function UniqueApproachSection() {
                   key={index}
                   className="content-stretch flex gap-10 items-start justify-start relative shrink-0 w-full"
                   variants={timelineItemVariants}
-                  custom={index}
                 >
                   {/* Icon and Divider Column */}
                   <div className="content-stretch flex flex-col gap-4 items-center justify-start relative shrink-0">

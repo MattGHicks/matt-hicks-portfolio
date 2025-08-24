@@ -28,11 +28,7 @@ export default function AnimatedHero() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
+      opacity: 1
     }
   };
 
@@ -45,11 +41,7 @@ export default function AnimatedHero() {
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
+      scale: 1
     }
   };
 
@@ -57,17 +49,10 @@ export default function AnimatedHero() {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.8
-      }
+      y: 0
     },
     hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.2
-      }
+      scale: 1.05
     },
     tap: {
       scale: 0.95
@@ -81,25 +66,11 @@ export default function AnimatedHero() {
       rotateX: 20,
       scale: 0.8
     },
-    visible: (delay) => ({
+    visible: {
       opacity: 1,
       y: 0,
       rotateX: 0,
-      scale: 1,
-      transition: {
-        duration: 1,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
-    })
-  };
-
-  const floatingAnimation = {
-    y: [-10, 10, -10],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut"
+      scale: 1
     }
   };
 
@@ -124,7 +95,7 @@ export default function AnimatedHero() {
             transition={{
               duration: 4 + (i % 4),
               repeat: Infinity,
-              delay: i * 0.2,
+              delay: i * 0.2
             }}
           />
         ))}
@@ -156,18 +127,12 @@ export default function AnimatedHero() {
                       visible: {
                         opacity: 1,
                         y: 0,
-                        rotateX: 0,
-                        transition: {
-                          duration: 0.8,
-                          delay: index * 0.1,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }
+                        rotateX: 0
                       }
                     }}
                     whileHover={{
                       scale: 1.05,
-                      color: "#103E39",
-                      transition: { duration: 0.2 }
+                      color: "#103E39"
                     }}
                   >
                     {word}
@@ -233,12 +198,16 @@ export default function AnimatedHero() {
             className="absolute aspect-[1024/790] bg-center bg-cover bg-no-repeat left-32 right-32 rounded-2xl top-0 shadow-2xl"
             style={{ backgroundImage: `url('${imgPlaceholderImage}')` }}
             variants={imageVariants}
-            custom={0.5}
-            animate={floatingAnimation}
+            animate={{
+              y: [-10, 10, -10],
+              transition: {
+                duration: 6,
+                repeat: Infinity
+              }
+            }}
             whileHover={{
               scale: 1.02,
-              rotateY: 5,
-              transition: { duration: 0.3 }
+              rotateY: 5
             }}
           />
           
@@ -247,18 +216,17 @@ export default function AnimatedHero() {
             className="absolute bg-center bg-cover bg-no-repeat bottom-32 left-0 rounded-2xl size-96 shadow-xl"
             style={{ backgroundImage: `url('${imgPlaceholderImage1}')` }}
             variants={imageVariants}
-            custom={1}
             animate={{
-              ...floatingAnimation,
+              y: [-10, 10, -10],
               transition: {
-                ...floatingAnimation.transition,
+                duration: 6,
+                repeat: Infinity,
                 delay: 1
               }
             }}
             whileHover={{
               scale: 1.05,
-              rotateZ: 2,
-              transition: { duration: 0.3 }
+              rotateZ: 2
             }}
           />
           
@@ -267,18 +235,17 @@ export default function AnimatedHero() {
             className="absolute bg-center bg-cover bg-no-repeat h-[576px] right-0 rounded-2xl top-[278px] w-96 shadow-xl"
             style={{ backgroundImage: `url('${imgPlaceholderImage2}')` }}
             variants={imageVariants}
-            custom={1.5}
             animate={{
-              ...floatingAnimation,
+              y: [-10, 10, -10],
               transition: {
-                ...floatingAnimation.transition,
+                duration: 6,
+                repeat: Infinity,
                 delay: 2
               }
             }}
             whileHover={{
               scale: 1.05,
-              rotateZ: -2,
-              transition: { duration: 0.3 }
+              rotateZ: -2
             }}
           />
 
@@ -289,7 +256,6 @@ export default function AnimatedHero() {
           className="flex flex-col items-center justify-center mt-12 cursor-pointer group"
           initial={{ opacity: 0, y: 20 }}
           animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 2, duration: 0.8 }}
           onClick={() => {
             const nextSection = document.querySelector('#about-section');
             nextSection?.scrollIntoView({ behavior: 'smooth' });
@@ -313,8 +279,7 @@ export default function AnimatedHero() {
             }}
             transition={{
               duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut"
+              repeat: Infinity
             }}
           >
             {/* Scroll indicator container */}
@@ -334,8 +299,7 @@ export default function AnimatedHero() {
                 }}
                 transition={{
                   duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                  repeat: Infinity
                 }}
               />
             </div>
@@ -350,7 +314,6 @@ export default function AnimatedHero() {
             transition={{
               duration: 1.5,
               repeat: Infinity,
-              ease: "easeInOut",
               delay: 0.2
             }}
           >

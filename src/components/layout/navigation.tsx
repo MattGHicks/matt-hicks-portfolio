@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ExternalLink } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -51,22 +50,21 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button variant="digitalfish" size="sm" className="ml-4">
+            <button className="ml-4 px-4 py-2 bg-[#103E39] text-white rounded-full hover:bg-[#103E39]/90 transition-colors duration-200">
               Let&apos;s Work Together
               <ExternalLink className="ml-2 h-4 w-4" />
-            </Button>
+            </button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
+            <button
+              className="p-2 text-foreground hover:text-primary transition-colors duration-200"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -92,10 +90,10 @@ export default function Navigation() {
                   </Link>
                 ))}
                 <div className="px-3 py-2">
-                  <Button variant="digitalfish" size="sm" className="w-full">
+                  <button className="w-full px-4 py-2 bg-[#103E39] text-white rounded-full hover:bg-[#103E39]/90 transition-colors duration-200">
                     Let&apos;s Work Together
                     <ExternalLink className="ml-2 h-4 w-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
             </motion.div>

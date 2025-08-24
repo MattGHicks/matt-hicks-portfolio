@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 export default function Hero() {
   return (
@@ -100,14 +99,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
-            <Button size="lg" variant="digitalfish" className="text-lg px-8 py-6">
+            <button className="text-lg px-8 py-6 bg-[#103E39] text-white rounded-full hover:bg-[#103E39]/90 transition-colors duration-200">
               View My Work
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+            </button>
+            <button className="text-lg px-8 py-6 border-2 border-[#103E39] text-[#103E39] rounded-full hover:bg-[#103E39] hover:text-white transition-colors duration-200">
               Download Resume
               <Download className="ml-2 h-5 w-5" />
-            </Button>
+            </button>
           </motion.div>
 
           {/* Stats */}
