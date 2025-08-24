@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
 :root {
   --background: 0 0% 100%;
@@ -50,13 +52,22 @@
 }
 
 body {
-  background-color: hsl(var(--background));
+  background-color: #d4ebe8;
   color: hsl(var(--foreground));
-  font-family: Inter, sans-serif;
+  font-family: 'PT Sans', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Figma Design System Fonts */
+.font-anybody {
+  font-family: 'Anybody', sans-serif;
+}
+
+.font-pt-sans {
+  font-family: 'PT Sans', sans-serif;
 }
 
 /* Custom scrollbar */

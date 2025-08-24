@@ -58,7 +58,13 @@ const config: Config = {
           purple: '#B266FF',
           pink: '#FF66B2',
           green: '#66FF66',
-        }
+        },
+        // Figma design colors
+        'teal-light': '#d4ebe8',
+        'teal-dark': '#264653',
+        'dark-green': '#103e39',
+        'neutral-darkest': '#0c0805',
+        'light-foreground': '#e9f5f3',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -101,7 +107,11 @@ const config: Config = {
         'glow': 'glow 2s ease-in-out infinite alternate',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        // Figma design fonts
+        'anybody': ['Anybody', 'sans-serif'],
+        'pt-sans': ['PT Sans', 'sans-serif'],
+        // Default fonts
+        sans: ['PT Sans', 'Inter', 'sans-serif'],
         mono: ['Fira Code', 'monospace'],
       }
     },
