@@ -82,7 +82,7 @@ export default function TestimonialsSection() {
       y: 60,
       scale: 0.9
     },
-    visible: (index: number) => ({
+    visible: () => ({
       opacity: 1,
       y: 0,
       scale: 1
@@ -209,7 +209,7 @@ export default function TestimonialsSection() {
                         className="leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[14px] w-full" 
                         style={{ fontFamily: "'PT Sans', sans-serif" }}
                       >
-                        <p className="leading-[1.5]">"{testimonial.quote}"</p>
+                        <p className="leading-[1.5]">&ldquo;{testimonial.quote}&rdquo;</p>
                       </div>
                       <div className="content-stretch flex flex-col gap-4 items-start justify-start relative shrink-0 w-full">
                         <div className="relative shrink-0 size-12">
@@ -284,7 +284,7 @@ export default function TestimonialsSection() {
                       className="leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[20px] w-full" 
                       style={{ fontFamily: "'PT Sans', sans-serif" }}
                     >
-                      <p className="leading-[1.5]">"{testimonial.quote}"</p>
+                      <p className="leading-[1.5]">&ldquo;{testimonial.quote}&rdquo;</p>
                     </div>
                     <div className="content-stretch flex gap-4 items-center justify-start relative shrink-0 w-full">
                       <div className="relative shrink-0 size-12">

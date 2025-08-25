@@ -47,7 +47,7 @@ export default function AboutSection() {
                       <p className="leading-[1.4]">Dual Brand</p>
                     </div>
                     <div className="not-italic relative shrink-0 text-[14px] lg:text-[18px] w-full" style={{ fontFamily: "'PT Sans', sans-serif" }}>
-                      <p className="leading-[1.5]">DigitalFish offers professional design services that elevate your brand's digital presence.</p>
+                      <p className="leading-[1.5]">DigitalFish offers professional design services that elevate your brand&apos;s digital presence.</p>
                     </div>
                   </div>
                   <div className="basis-0 content-stretch flex flex-col gap-4 grow items-start justify-start leading-[0] relative text-[#0c0805] p-4 rounded-2xl hover:bg-[#d4ebe8] transition-colors duration-300 cursor-pointer">
@@ -82,7 +82,7 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
-          <div className="aspect-[335/348] lg:aspect-[600/640] basis-0 bg-center bg-cover bg-no-repeat grow rounded-2xl w-full lg:w-auto" style={{ backgroundImage: `url('${imgPlaceholderImage}')` }} />
+          <div className="aspect-[335/348] lg:aspect-[600/640] basis-0 bg-center bg-cover bg-no-repeat grow rounded-2xl w-full lg:w-auto" style={{ backgroundImage: `url(${imgPlaceholderImage})` }} />
         </div>
       </div>
     </div>

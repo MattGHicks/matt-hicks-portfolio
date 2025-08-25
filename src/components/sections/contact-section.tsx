@@ -62,7 +62,7 @@ export default function ContactSection() {
       opacity: 0, 
       y: 40
     },
-    visible: (index: number) => ({
+    visible: () => ({
       opacity: 1,
       y: 0
     })

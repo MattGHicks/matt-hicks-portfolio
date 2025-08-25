@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-const imgTitle = "http://localhost:3845/assets/0a2a898d0ebe0d6736eeee046740c3a5abc796c1.svg";
-
 export default function FigmaNavigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

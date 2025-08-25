@@ -47,7 +47,7 @@ export default function FeaturesSection() {
       y: 60,
       scale: 0.9
     },
-    visible: (index: number) => ({
+    visible: () => ({
       opacity: 1,
       y: 0,
       scale: 1
