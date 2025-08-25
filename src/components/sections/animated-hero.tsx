@@ -15,78 +15,46 @@ export default function AnimatedHero() {
     setIsLoaded(true);
   }, []);
 
-  // Deterministic positions for particles to avoid hydration mismatch
-  const particlePositions = [
-    { left: 15, top: 25 }, { left: 85, top: 60 }, { left: 30, top: 80 }, { left: 70, top: 20 },
-    { left: 50, top: 90 }, { left: 10, top: 45 }, { left: 90, top: 35 }, { left: 25, top: 65 },
-    { left: 75, top: 15 }, { left: 40, top: 75 }, { left: 60, top: 40 }, { left: 5, top: 85 },
-    { left: 95, top: 55 }, { left: 35, top: 10 }, { left: 65, top: 85 }, { left: 20, top: 50 },
-    { left: 80, top: 30 }, { left: 45, top: 70 }, { left: 55, top: 5 }, { left: 12, top: 95 }
-  ];
-
-  // Animation variants
+  // Animation variants - simplified
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
-      opacity: 1
-    }
-  };
-
-  const textVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.95
-    },
-    visible: {
       opacity: 1,
-      y: 0,
-      scale: 1
+      transition: {
+        staggerChildren: 0.2
+      }
     }
   };
 
-  const buttonVariants = {
+  const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      y: 0
-    },
-    hover: {
-      scale: 1.05
-    },
-    tap: {
-      scale: 0.95
+      y: 0,
+      transition: { duration: 0.6 }
     }
   };
 
   const imageVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 100,
-      rotateX: 20,
-      scale: 0.8
-    },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
-      y: 0,
-      rotateX: 0,
-      scale: 1
+      scale: 1,
+      transition: { duration: 0.8 }
     }
   };
 
-  const titleWords = "Transforming Ideas into Stunning Digital Experiences".split(" ");
-
   return (
-    <div className="bg-[#d4ebe8] box-border content-stretch flex flex-col gap-20 items-center justify-start px-16 py-28 relative w-full overflow-hidden">
+    <div className="bg-[#d4ebe8] box-border content-stretch flex flex-col gap-12 lg:gap-20 items-center justify-start px-5 lg:px-16 py-16 lg:py-28 relative size-full overflow-hidden">
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {isLoaded && particlePositions.map((pos, i) => (
+        {isLoaded && Array.from({ length: 20 }).map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-white/10 rounded-full"
             style={{
-              left: `${pos.left}%`,
-              top: `${pos.top}%`,
+              left: `${15 + i * 4}%`,
+              top: `${25 + (i % 4) * 20}%`,
             }}
             animate={{
               y: [-20, -100, -20],
@@ -102,37 +70,31 @@ export default function AnimatedHero() {
       </div>
 
       <motion.div 
-        className="content-stretch flex flex-col gap-20 items-center justify-start max-w-[1280px] relative shrink-0 w-full z-10"
+        className="content-stretch flex flex-col gap-12 lg:gap-20 items-center justify-start max-w-[1280px] relative shrink-0 w-full z-10"
         variants={containerVariants}
         initial="hidden"
         animate={isLoaded ? "visible" : "hidden"}
       >
         {/* Text Content */}
-        <div className="content-stretch flex flex-col gap-8 items-center justify-start max-w-[768px] relative shrink-0 w-full">
-          <div className="content-stretch flex flex-col gap-6 items-center justify-start leading-[0] relative shrink-0 text-[#0c0805] text-center w-full">
-            
-            {/* Animated Title */}
-            <div className="font-medium relative shrink-0 text-[84px] tracking-[-0.84px] w-full" style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}>
-              <p className="leading-[1.1]">
-                {titleWords.map((word, index) => (
+        <div className="content-stretch flex flex-col gap-6 lg:gap-8 items-center justify-start max-w-[768px] relative shrink-0 w-full">
+          <motion.div 
+            className="content-stretch flex flex-col gap-5 lg:gap-6 items-center justify-start leading-[0] relative shrink-0 text-[#0c0805] text-center w-full"
+            variants={fadeInUp}
+          >
+            {/* Title - with individual word hover effects */}
+            <div 
+              className="font-medium relative shrink-0 text-[44px] lg:text-[84px] tracking-[-0.44px] lg:tracking-[-0.84px] w-full" 
+              style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
+            >
+              <p className="leading-[1.2] lg:leading-[1.1]">
+                {"Transforming Ideas into Stunning Digital Experiences".split(" ").map((word, index) => (
                   <motion.span
                     key={index}
-                    className="inline-block mr-6"
-                    variants={{
-                      hidden: { 
-                        opacity: 0, 
-                        y: 50,
-                        rotateX: -90
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        rotateX: 0
-                      }
-                    }}
+                    className="inline-block mr-3 cursor-pointer"
                     whileHover={{
                       scale: 1.05,
-                      color: "#103E39"
+                      color: "#103E39",
+                      transition: { duration: 0.2 }
                     }}
                   >
                     {word}
@@ -141,33 +103,31 @@ export default function AnimatedHero() {
               </p>
             </div>
 
-            {/* Animated Subtitle */}
-            <motion.div 
-              className="not-italic relative shrink-0 text-[20px] w-full" 
+            {/* Subtitle */}
+            <div 
+              className="not-italic relative shrink-0 text-[14px] lg:text-[20px] w-full" 
               style={{ fontFamily: "'PT Sans', sans-serif" }}
-              variants={textVariants}
             >
               <p className="leading-[1.5]">
                 At DigitalFish, we specialize in crafting intuitive UI/UX designs that elevate your brand. 
                 Explore our portfolio to see how we can bring your vision to life.
               </p>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
-          {/* Animated Buttons */}
+          {/* Buttons */}
           <motion.div 
-            className="content-stretch flex gap-4 items-center justify-start relative shrink-0"
-            variants={buttonVariants}
+            className="content-stretch flex flex-col lg:flex-row gap-4 items-center justify-center lg:justify-start relative shrink-0"
+            variants={fadeInUp}
           >
             <motion.button 
-              className="bg-[#103e39] box-border content-stretch flex gap-2 items-center justify-center px-6 py-2.5 relative rounded-[100px] shrink-0"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
+              className="bg-[#103e39] box-border content-stretch flex gap-2 items-center justify-center px-6 py-2.5 relative shrink-0"
+              style={{ borderRadius: '100px', border: '2px solid #103E39' }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <div aria-hidden="true" className="absolute border-2 border-[#103e39] border-solid inset-[-2px] pointer-events-none rounded-[102px]" />
               <div 
-                className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] text-nowrap" 
+                className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] lg:text-[18px] text-nowrap" 
                 style={{ fontFamily: "'PT Sans', sans-serif" }}
               >
                 <p className="leading-[1.5] whitespace-pre">View My Design on Figma</p>
@@ -175,14 +135,13 @@ export default function AnimatedHero() {
             </motion.button>
 
             <motion.button 
-              className="box-border content-stretch flex gap-2 items-center justify-center px-6 py-2.5 relative rounded-[100px] shrink-0 hover:bg-[rgba(16,62,57,0.1)] transition-colors duration-300"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
+              className="box-border content-stretch flex gap-2 items-center justify-center px-6 py-2.5 relative shrink-0 bg-transparent"
+              style={{ borderRadius: '100px', border: '2px solid #103E39' }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <div aria-hidden="true" className="absolute border-2 border-[#103e39] border-solid inset-[-2px] pointer-events-none rounded-[102px]" />
               <div 
-                className="font-bold leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[18px] text-nowrap" 
+                className="font-bold leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[14px] lg:text-[18px] text-nowrap" 
                 style={{ fontFamily: "'PT Sans', sans-serif" }}
               >
                 <p className="leading-[1.5] whitespace-pre">Download My Resume</p>
@@ -191,65 +150,61 @@ export default function AnimatedHero() {
           </motion.div>
         </div>
 
-        {/* Animated Image Container */}
-        <div className="h-[854px] relative shrink-0 w-full">
+        {/* Image Container - Clean responsive layout */}
+        <motion.div 
+          className="h-[218.056px] lg:h-[854px] relative shrink-0 w-full"
+          variants={fadeInUp}
+        >
           {/* Main Center Image */}
           <motion.div 
-            className="absolute aspect-[1024/790] bg-center bg-cover bg-no-repeat left-32 right-32 rounded-2xl top-0 shadow-2xl"
+            className="absolute bg-center bg-cover bg-no-repeat rounded-2xl shadow-2xl
+                       h-[201.715px] left-[32.68px] right-[32.68px] top-0
+                       lg:h-[790px] lg:left-32 lg:right-32 lg:top-0"
             style={{ backgroundImage: `url('${imgPlaceholderImage}')` }}
             variants={imageVariants}
             animate={{
-              y: [-10, 10, -10],
+              y: [-5, 5, -5],
               transition: {
                 duration: 6,
                 repeat: Infinity
               }
             }}
-            whileHover={{
-              scale: 1.02,
-              rotateY: 5
-            }}
           />
           
           {/* Left Bottom Image */}
           <motion.div 
-            className="absolute bg-center bg-cover bg-no-repeat bottom-32 left-0 rounded-2xl size-96 shadow-xl"
+            className="absolute bg-center bg-cover bg-no-repeat rounded-2xl shadow-xl
+                       bottom-[32.68px] left-0 size-[98.049px]
+                       lg:bottom-32 lg:left-0 lg:size-96"
             style={{ backgroundImage: `url('${imgPlaceholderImage1}')` }}
             variants={imageVariants}
             animate={{
-              y: [-10, 10, -10],
+              y: [-3, 3, -3],
               transition: {
-                duration: 6,
+                duration: 5,
                 repeat: Infinity,
                 delay: 1
               }
-            }}
-            whileHover={{
-              scale: 1.05,
-              rotateZ: 2
             }}
           />
           
           {/* Right Image */}
           <motion.div 
-            className="absolute bg-center bg-cover bg-no-repeat h-[576px] right-0 rounded-2xl top-[278px] w-96 shadow-xl"
+            className="absolute bg-center bg-cover bg-no-repeat rounded-2xl shadow-xl
+                       h-[147.073px] right-0 top-[70.98px] w-[98.049px]
+                       lg:h-[576px] lg:right-0 lg:top-[278px] lg:w-96"
             style={{ backgroundImage: `url('${imgPlaceholderImage2}')` }}
             variants={imageVariants}
             animate={{
-              y: [-10, 10, -10],
+              y: [-3, 3, -3],
               transition: {
-                duration: 6,
+                duration: 5,
                 repeat: Infinity,
                 delay: 2
               }
             }}
-            whileHover={{
-              scale: 1.05,
-              rotateZ: -2
-            }}
           />
-
-        </div>
+        </motion.div>
 
         {/* Bouncing Scroll Indicator */}
         <motion.div 

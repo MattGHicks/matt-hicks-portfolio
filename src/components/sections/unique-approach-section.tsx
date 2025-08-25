@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useScroll, useTransform, motion, useInView, MotionStyle } from "framer-motion";
 import { ChevronRight, Lightbulb, Wrench, Users, TrendingUp } from "lucide-react";
 
 export default function UniqueApproachSection() {
@@ -15,94 +15,35 @@ export default function UniqueApproachSection() {
     { left: 35, top: 35 }, { left: 80, top: 65 }, { left: 55, top: 10 }, { left: 5, top: 80 }
   ];
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1
-    }
-  };
-
-  const slideInFromLeft = {
-    hidden: { 
-      opacity: 0, 
-      x: -60,
-      y: 20
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0
-    }
-  };
-
-  const timelineVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: 60,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1
-    }
-  };
-
-  const timelineItemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 40,
-      x: 20
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0
-    }
-  };
-
-  const iconVariants = {
-    hidden: { 
-      scale: 0,
-      rotate: -180
-    },
-    visible: {
-      scale: 1,
-      rotate: 0
-    }
-  };
-
   // Timeline items with relevant Matt Hicks content
   const timelineItems = [
     {
       icon: Lightbulb,
       title: "Our Methodology",
-      description: "We prioritize user-centered design, ensuring every project meets client needs and exceeds expectations.",
-      gradient: "from-yellow-400 to-orange-500"
+      description: "We prioritize user-centered design, ensuring every project meets client needs and expectations."
     },
     {
       icon: Wrench,
       title: "Tools & Technologies",
-      description: "Utilizing Figma, Next.js, and modern design tools to streamline the creative process and deliver excellence.",
-      gradient: "from-blue-400 to-purple-500"
+      description: "Utilizing Figma, Next.js, and modern design tools to streamline the creative process."
     },
     {
       icon: Users,
       title: "Client Collaboration",
-      description: "We work closely with clients, ensuring transparency and communication throughout the design process.",
-      gradient: "from-green-400 to-teal-500"
+      description: "We work closely with clients, ensuring transparency and communication throughout the design process."
     },
     {
       icon: TrendingUp,
       title: "Continuous Improvement",
-      description: "Feedback is integral; we adapt our designs based on client insights and project developments.",
-      gradient: "from-pink-400 to-red-500"
+      description: "Feedback is integral; we adapt our designs based on client insights and project developments."
     }
   ];
 
   return (
-    <div className="bg-[#103e39] box-border content-stretch flex flex-col gap-20 items-center justify-start px-16 py-28 relative w-full overflow-hidden" ref={ref}>
+    <section 
+      className="bg-[#103e39] px-5 py-16 md:py-24 lg:px-16 lg:py-28 relative overflow-hidden" 
+      ref={ref}
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particlePositions.map((pos, i) => (
@@ -127,164 +68,153 @@ export default function UniqueApproachSection() {
         ))}
       </div>
 
-      <motion.div 
-        className="content-stretch flex flex-col gap-20 items-start justify-start max-w-[1280px] relative shrink-0 w-full z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <div className="content-stretch flex gap-20 items-start justify-start relative shrink-0 w-full">
+      <div className="container mx-auto max-w-[1280px] relative z-10">
+        <div className="grid grid-cols-1 items-start gap-y-8 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           {/* Left Content */}
-          <motion.div 
-            className="basis-0 content-stretch flex flex-col gap-8 grow items-start justify-start min-h-px min-w-px relative shrink-0"
-            variants={slideInFromLeft}
+          <motion.div
+            initial={{ opacity: 0, x: -60, y: 20 }}
+            animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -60, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="content-stretch flex flex-col gap-4 items-start justify-start relative shrink-0 w-full">
-              <div className="content-stretch flex items-center justify-start relative shrink-0">
-                <div 
-                  className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[16px] text-nowrap" 
-                  style={{ fontFamily: "'PT Sans', sans-serif" }}
-                >
-                  <p className="leading-[1.5] whitespace-pre">Design</p>
-                </div>
-              </div>
-              <div 
-                className="font-medium leading-[0] relative shrink-0 text-[#ffffff] text-[60px] tracking-[-0.6px] w-full" 
-                style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
-              >
-                <p className="leading-[1.2]">
-                  {["Our", "Unique", "Approach", "to", "Design", "and", "Collaboration"].map((word, index) => (
-                    <motion.span
-                      key={index}
-                      className="inline-block mr-4"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 0.1 + (index * 0.08)
-                      }}
-                      whileHover={{
-                        scale: 1.02,
-                        color: "#d4ebe8",
-                        transition: { duration: 0.2 }
-                      }}
-                    >
-                      {word}
-                    </motion.span>
-                  ))}
-                </p>
-              </div>
+            <div 
+              className="font-bold mb-3 text-[#ffffff] text-[16px] md:mb-4" 
+              style={{ fontFamily: "'PT Sans', sans-serif" }}
+            >
+              Design
             </div>
+            <h2 
+              className="mb-5 text-[44px] md:text-[60px] lg:text-[60px] font-medium leading-[1.2] text-[#ffffff] tracking-[-0.44px] md:tracking-[-0.6px] md:mb-6"
+              style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
+            >
+              {["Our", "Unique", "Approach", "to", "Design", "and", "Collaboration"].map((word, index) => (
+                <motion.span
+                  key={index}
+                  className="inline-block mr-4"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3 + (index * 0.08)
+                  }}
+                  whileHover={{
+                    scale: 1.02,
+                    color: "#d4ebe8",
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </h2>
 
             {/* Action Buttons */}
             <motion.div 
-              className="content-stretch flex gap-6 items-center justify-start relative shrink-0"
+              className="mt-6 flex flex-col sm:flex-row flex-wrap items-center gap-4 md:mt-8"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <motion.button 
-                className="relative rounded-[100px] shrink-0 border border-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.05)] transition-colors duration-300"
+              <motion.button
+                className="rounded-full px-6 py-2.5 border border-white/10 text-[#ffffff] hover:bg-white/5 transition-colors duration-300"
+                style={{ fontFamily: "'PT Sans', sans-serif" }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="box-border content-stretch flex gap-2 items-center justify-center overflow-clip px-6 py-2.5 relative">
-                  <div 
-                    className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] text-nowrap" 
-                    style={{ fontFamily: "'PT Sans', sans-serif" }}
-                  >
-                    <p className="leading-[1.5] whitespace-pre">Learn More</p>
-                  </div>
-                </div>
+                <span className="font-bold text-[14px] lg:text-[18px]">Learn More</span>
               </motion.button>
 
-              <motion.button 
-                className="content-stretch flex gap-2 items-center justify-center overflow-clip relative rounded-[100px] shrink-0 group hover:gap-3 transition-all duration-200"
+              <motion.button
+                className="group flex items-center gap-2 text-[#ffffff] hover:text-[#d4ebe8] transition-colors duration-200"
+                style={{ fontFamily: "'PT Sans', sans-serif" }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div 
-                  className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] text-nowrap group-hover:text-[#d4ebe8] transition-colors duration-200" 
-                  style={{ fontFamily: "'PT Sans', sans-serif" }}
-                >
-                  <p className="leading-[1.5] whitespace-pre">Sign Up</p>
-                </div>
-                <ChevronRight className="size-6 text-[#ffffff] group-hover:text-[#d4ebe8] group-hover:translate-x-1 transition-all duration-200" />
+                <span className="font-bold text-[14px] lg:text-[18px]">Sign Up</span>
+                <ChevronRight className="size-6 group-hover:translate-x-1 transition-transform duration-200" />
               </motion.button>
             </motion.div>
           </motion.div>
 
           {/* Timeline Section */}
           <motion.div 
-            className="basis-0 content-stretch flex flex-col gap-4 grow items-start justify-start min-h-px min-w-px relative shrink-0"
-            variants={timelineVariants}
+            className="relative"
+            initial={{ opacity: 0, x: 60, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: 60, scale: 0.95 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
+            <AnimatedTimeline />
             {timelineItems.map((item, index) => {
               const IconComponent = item.icon;
-              const isLast = index === timelineItems.length - 1;
-              
               return (
                 <motion.div 
-                  key={index}
-                  className="content-stretch flex gap-10 items-start justify-start relative shrink-0 w-full"
-                  variants={timelineItemVariants}
+                  key={index} 
+                  className="grid grid-cols-[max-content_1fr] gap-x-6 lg:gap-x-10"
+                  initial={{ opacity: 0, y: 40, x: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 40, x: 20 }}
+                  transition={{ duration: 0.6, delay: 0.5 + (index * 0.1) }}
                 >
-                  {/* Icon and Divider Column */}
-                  <div className="content-stretch flex flex-col gap-4 items-center justify-start relative shrink-0">
-                    {/* Animated Icon */}
+                  <div className="relative z-20 flex w-12 flex-col items-center justify-start pt-8">
                     <motion.div 
-                      className="overflow-clip relative shrink-0 size-16 flex items-center justify-center group"
-                      variants={iconVariants}
+                      className="flex size-12 items-center justify-center rounded-xl border border-border-primary bg-[#d4ebe8] shadow-lg"
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
+                      transition={{ duration: 0.6, delay: 0.6 + (index * 0.1) }}
                       whileHover={{
                         scale: 1.1,
                         rotate: 5,
                         transition: { duration: 0.2 }
                       }}
                     >
-                      <div className="absolute inset-0 bg-[#d4ebe8] rounded-2xl shadow-lg" />
-                      <IconComponent className="size-8 text-[#103E39] relative z-10" />
+                      <IconComponent className="size-6 text-[#103E39]" />
                     </motion.div>
-
-                    {/* Timeline Divider */}
-                    {!isLast && (
-                      <motion.div 
-                        className="flex h-[100px] items-center justify-center relative shrink-0 w-[0px]"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={isInView ? { height: 100, opacity: 1 } : { height: 0, opacity: 0 }}
-                        transition={{ duration: 0.8, delay: 0.6 + (index * 0.1) }}
-                      >
-                        <div className="w-px h-full bg-gradient-to-b from-white/20 to-white/5" />
-                      </motion.div>
-                    )}
                   </div>
-
-                  {/* Content */}
                   <motion.div 
-                    className="basis-0 content-stretch flex flex-col gap-4 grow items-start justify-start leading-[0] min-h-px min-w-px relative shrink-0 text-[#ffffff]"
+                    className="pb-8 pt-10"
                     whileHover={{
                       x: 5,
                       transition: { duration: 0.2 }
                     }}
                   >
-                    <div 
-                      className="font-medium relative shrink-0 text-[26px] tracking-[-0.26px] w-full hover:text-[#d4ebe8] transition-colors duration-300" 
+                    <h6 
+                      className="mb-3 text-[18px] lg:text-[26px] font-medium leading-[1.4] md:mb-4 text-[#ffffff] hover:text-[#d4ebe8] transition-colors duration-300 tracking-[-0.18px] lg:tracking-[-0.26px]"
                       style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
                     >
-                      <p className="leading-[1.4]">{item.title}</p>
-                    </div>
-                    <div 
-                      className="not-italic relative shrink-0 text-[18px] w-full text-white/90" 
+                      {item.title}
+                    </h6>
+                    <p 
+                      className="text-[14px] lg:text-[18px] text-white/90 leading-[1.5]"
                       style={{ fontFamily: "'PT Sans', sans-serif" }}
                     >
-                      <p className="leading-[1.5]">{item.description}</p>
-                    </div>
+                      {item.description}
+                    </p>
                   </motion.div>
                 </motion.div>
               );
             })}
+            
           </motion.div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }
+
+// Animated timeline component based on Relume structure
+const AnimatedTimeline = () => {
+  const scrollSection = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollSection,
+    offset: ["start 55%", "start start"],
+  });
+  const height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  
+  return (
+    <div className="absolute left-6 top-16 -z-10 h-[calc(75%-32px)] w-0.5 bg-white/20">
+      <motion.div 
+        ref={scrollSection} 
+        className="w-full bg-gradient-to-b from-white/40 to-white/20" 
+        style={{ height } as MotionStyle} 
+      />
+    </div>
+  );
+};

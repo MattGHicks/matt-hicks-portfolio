@@ -90,7 +90,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="bg-[#103e39] box-border content-stretch flex flex-col gap-20 items-center justify-start px-16 py-28 relative w-full overflow-hidden" ref={ref}>
+    <div className="bg-[#103e39] box-border content-stretch flex flex-col gap-12 lg:gap-20 items-center justify-start px-5 lg:px-16 py-16 lg:py-28 relative w-full overflow-hidden" ref={ref}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particlePositions.map((pos, i) => (
@@ -116,15 +116,15 @@ export default function ContactSection() {
       </div>
 
       <motion.div 
-        className="content-stretch flex flex-col gap-20 items-start justify-start max-w-[1280px] relative shrink-0 w-full z-10"
+        className="content-stretch flex flex-col gap-12 lg:gap-20 items-start justify-start max-w-[1280px] relative shrink-0 w-full z-10"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <div className="content-stretch flex gap-20 items-start justify-start relative shrink-0 w-full">
+        <div className="content-stretch flex flex-col lg:flex-row gap-12 lg:gap-20 items-start justify-start relative shrink-0 w-full">
           {/* Left Image */}
           <motion.div 
-            className="basis-0 bg-center bg-cover bg-no-repeat grow h-[734px] min-h-px min-w-px rounded-2xl shrink-0 shadow-2xl overflow-hidden relative"
+            className="bg-center bg-cover bg-no-repeat h-[335px] lg:h-[764px] rounded-2xl shrink-0 w-full lg:basis-0 lg:grow lg:min-h-px lg:min-w-px shadow-2xl overflow-hidden relative"
             style={{ backgroundImage: `url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=734&fit=crop&crop=center')` }}
             variants={slideInFromLeft}
             whileHover={{
@@ -137,10 +137,16 @@ export default function ContactSection() {
             
             {/* Floating badge */}
             <motion.div
-              className="absolute top-8 left-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-white shadow-lg"
+              className="absolute top-8 left-8 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-[#103e39] shadow-lg cursor-pointer"
               initial={{ opacity: 0, scale: 0 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
               transition={{ delay: 1.2, duration: 0.5 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(255,255,255,0.15)",
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               Let&apos;s Connect!
             </motion.div>
@@ -148,11 +154,11 @@ export default function ContactSection() {
 
           {/* Right Content - Form */}
           <motion.div 
-            className="basis-0 content-stretch flex flex-col gap-8 grow items-start justify-start min-h-px min-w-px relative shrink-0"
+            className="content-stretch flex flex-col gap-6 lg:gap-8 items-start justify-start w-full lg:basis-0 lg:grow lg:min-h-px lg:min-w-px relative shrink-0"
             variants={slideInFromRight}
           >
             {/* Section Title */}
-            <div className="content-stretch flex flex-col gap-4 items-start justify-start relative shrink-0 w-full">
+            <div className="content-stretch flex flex-col gap-3 lg:gap-4 items-start justify-start relative shrink-0 w-full">
               <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
                 <div 
                   className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[16px] text-nowrap" 
@@ -161,9 +167,9 @@ export default function ContactSection() {
                   <p className="leading-[1.5] whitespace-pre">Connect</p>
                 </div>
               </div>
-              <div className="content-stretch flex flex-col gap-6 items-start justify-start leading-[0] relative shrink-0 text-[#ffffff] w-full">
+              <div className="content-stretch flex flex-col gap-5 lg:gap-6 items-start justify-start leading-[0] relative shrink-0 text-[#ffffff] w-full">
                 <div 
-                  className="font-medium relative shrink-0 text-[60px] tracking-[-0.6px] w-full" 
+                  className="font-medium relative shrink-0 text-[44px] lg:text-[60px] tracking-[-0.44px] lg:tracking-[-0.6px] w-full" 
                   style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
                 >
                   <p className="leading-[1.2]">
@@ -189,7 +195,7 @@ export default function ContactSection() {
                   </p>
                 </div>
                 <motion.div 
-                  className="not-italic relative shrink-0 text-[20px] w-full" 
+                  className="not-italic relative shrink-0 text-[14px] lg:text-[20px] w-full" 
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                   variants={formVariants}
                   custom={0}
@@ -213,7 +219,7 @@ export default function ContactSection() {
                 custom={2}
               >
                 <div 
-                  className="leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] w-full" 
+                  className="leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] lg:text-[18px] w-full" 
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                 >
                   <p className="leading-[1.5]">Name</p>
@@ -223,7 +229,8 @@ export default function ContactSection() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.04)] text-white placeholder-white/60 px-3 py-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all duration-200"
+                  autoComplete="name"
+                  className="bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.04)] text-white placeholder-white/60 px-3 h-12 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all duration-200"
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                   whileFocus={{ scale: 1.01 }}
                   required
@@ -237,7 +244,7 @@ export default function ContactSection() {
                 custom={3}
               >
                 <div 
-                  className="leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] w-full" 
+                  className="leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] lg:text-[18px] w-full" 
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                 >
                   <p className="leading-[1.5]">Email</p>
@@ -247,7 +254,8 @@ export default function ContactSection() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.04)] text-white placeholder-white/60 px-3 py-2 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all duration-200"
+                  autoComplete="email"
+                  className="bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.04)] text-white placeholder-white/60 px-3 h-12 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all duration-200"
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                   whileFocus={{ scale: 1.01 }}
                   required
@@ -261,7 +269,7 @@ export default function ContactSection() {
                 custom={4}
               >
                 <div 
-                  className="leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] w-full" 
+                  className="leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] lg:text-[18px] w-full" 
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                 >
                   <p className="leading-[1.5]">Message</p>
@@ -271,8 +279,7 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Type your message..."
-                  rows={6}
-                  className="bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.04)] text-white placeholder-white/60 p-3 rounded-xl w-full resize-none focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all duration-200"
+                  className="bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.04)] text-white placeholder-white/60 p-3 rounded-xl w-full resize-none focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all duration-200 h-[180px]"
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                   whileFocus={{ scale: 1.01 }}
                   required
@@ -297,7 +304,7 @@ export default function ContactSection() {
                 />
                 <label 
                   htmlFor="acceptTerms"
-                  className="text-[#ffffff] text-[16px] cursor-pointer"
+                  className="text-[#ffffff] text-[12px] lg:text-[16px] cursor-pointer"
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                 >
                   <p className="leading-[1.5]">I accept the Terms</p>
@@ -315,7 +322,7 @@ export default function ContactSection() {
                 disabled={!formData.acceptTerms}
               >
                 <div 
-                  className="font-bold leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[18px] text-nowrap" 
+                  className="font-bold leading-[0] not-italic relative shrink-0 text-[#0c0805] text-[14px] lg:text-[18px] text-nowrap" 
                   style={{ fontFamily: "'PT Sans', sans-serif" }}
                 >
                   <p className="leading-[1.5] whitespace-pre">Submit</p>

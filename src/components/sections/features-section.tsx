@@ -87,7 +87,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <div className="bg-[#103e39] box-border content-stretch flex flex-col gap-20 items-center justify-start px-16 py-28 relative w-full overflow-hidden" ref={ref}>
+    <div className="bg-[#103e39] box-border content-stretch flex flex-col gap-12 lg:gap-20 items-center justify-start px-5 lg:px-16 py-16 lg:py-28 relative w-full overflow-hidden" ref={ref}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particlePositions.map((pos, i) => (
@@ -120,7 +120,7 @@ export default function FeaturesSection() {
       >
         {/* Title */}
         <motion.h3 
-          className="font-medium leading-[0] max-w-[768px] relative shrink-0 text-[#ffffff] text-[48px] text-center tracking-[-0.48px] w-full" 
+          className="font-medium leading-[0] max-w-[768px] relative shrink-0 text-[#ffffff] text-[32px] lg:text-[48px] text-center tracking-[-0.32px] lg:tracking-[-0.48px] w-full" 
           style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
           variants={titleVariants}
         >
@@ -143,14 +143,14 @@ export default function FeaturesSection() {
         </motion.h3>
 
         {/* Features Grid */}
-        <div className="content-stretch flex flex-col gap-16 items-start justify-start relative shrink-0 w-full">
-          <div className="content-stretch flex gap-8 items-start justify-center relative shrink-0 w-full">
+        <div className="content-stretch flex flex-col gap-12 lg:gap-16 items-start justify-start relative shrink-0 w-full">
+          <div className="content-stretch flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start justify-center relative shrink-0 w-full">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
                 <motion.div 
                   key={index}
-                  className="basis-0 content-stretch flex flex-col gap-8 grow items-center justify-start min-h-px min-w-px relative shrink-0 group"
+                  className="basis-0 content-stretch flex flex-col gap-6 lg:gap-8 grow items-center justify-start relative group max-w-[768px] lg:max-w-none w-full lg:w-auto"
                   variants={cardVariants}
                   custom={index}
                   whileHover={{
@@ -175,7 +175,7 @@ export default function FeaturesSection() {
                     <div className="content-stretch flex flex-col gap-4 items-center justify-start leading-[0] relative shrink-0 text-[#ffffff] text-center w-full">
                       {/* Title */}
                       <h6 
-                        className="font-medium relative shrink-0 text-[26px] tracking-[-0.26px] w-full group-hover:text-white transition-colors duration-300 leading-[1.4]" 
+                        className="font-medium relative shrink-0 text-[20px] lg:text-[26px] tracking-[-0.2px] lg:tracking-[-0.26px] w-full group-hover:text-white transition-colors duration-300 leading-[1.3] lg:leading-[1.4]" 
                         style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
                       >
                         {feature.title}
@@ -183,7 +183,7 @@ export default function FeaturesSection() {
 
                       {/* Description */}
                       <div 
-                        className="not-italic relative shrink-0 text-[18px] w-full text-white/80 group-hover:text-white/90 transition-colors duration-300" 
+                        className="not-italic relative shrink-0 text-[14px] lg:text-[18px] w-full text-white/80 group-hover:text-white/90 transition-colors duration-300" 
                         style={{ fontFamily: "'PT Sans', sans-serif" }}
                       >
                         <p className="leading-[1.5]">{feature.description}</p>
@@ -199,7 +199,7 @@ export default function FeaturesSection() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <div 
-                        className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] text-nowrap group-hover/btn:text-white transition-colors duration-200" 
+                        className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[14px] lg:text-[18px] text-nowrap group-hover/btn:text-white transition-colors duration-200" 
                         style={{ fontFamily: "'PT Sans', sans-serif" }}
                       >
                         <p className="leading-[1.5] whitespace-pre">{feature.buttonText}</p>

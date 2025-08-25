@@ -27,7 +27,6 @@ export default function GlassNavigation() {
       style={{
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >
       <div className="max-w-[1280px] mx-auto px-8 py-4">

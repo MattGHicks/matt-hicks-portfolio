@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
+const imgTitle = "http://localhost:3845/assets/0a2a898d0ebe0d6736eeee046740c3a5abc796c1.svg";
+
 export default function FigmaNavigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -15,27 +17,26 @@ export default function FigmaNavigation() {
         backgroundColor: 'transparent',
       }}
     >
-      <div className="box-border content-stretch flex flex-col gap-2.5 items-start justify-start px-16 py-3 relative size-full">
+      <div className="box-border content-stretch flex flex-col gap-2.5 items-start justify-start px-3 lg:px-20 py-3 relative size-full">
         <div 
-          className="content-stretch flex flex-col items-center justify-start px-0 py-3 relative rounded-[48px] shrink-0 w-full transition-all duration-500"
+          className="content-stretch flex flex-col items-center justify-start px-0 py-3 lg:py-3 relative rounded-[48px] shrink-0 w-full h-auto lg:h-auto transition-all duration-500"
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.15)',
             backdropFilter: 'blur(20px) saturate(150%)',
             WebkitBackdropFilter: 'blur(20px) saturate(150%)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.3)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
           }}
         >
-          <div className="box-border content-stretch flex items-center justify-between px-8 py-0 relative shrink-0 w-full">
+          <div className="box-border content-stretch flex items-center justify-between px-5 lg:px-8 py-0 relative shrink-0 w-full">
             <div className="basis-0 content-stretch flex grow items-center justify-between min-h-px min-w-px relative shrink-0">
               
               {/* Logo/Brand */}
-              <div className="content-stretch flex gap-6 items-center justify-start relative shrink-0">
+              <div className="content-stretch flex gap-[19.704px] lg:gap-[25.229px] items-center justify-start relative shrink-0">
                 <Link href="/" className="group">
-                  <div 
-                    className="font-medium leading-[0] relative shrink-0 text-[#0c0805] text-[26px] text-center text-nowrap tracking-[-0.26px] group-hover:text-[#103E39] transition-all duration-300" 
-                    style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}
-                  >
-                    <p className="leading-[1.4] whitespace-pre">Matt Hicks</p>
+                  <div className="box-border content-stretch flex gap-2.5 h-full items-center justify-center pb-0 pt-0.5 px-0 relative shrink-0 group-hover:opacity-80 transition-all duration-300">
+                    <div className="flex flex-col font-semibold justify-end leading-[0] relative shrink-0 text-[#0c0805] text-[24px] lg:text-[32px] text-center text-nowrap tracking-[-0.24px] lg:tracking-[-0.32px]" style={{ fontFamily: "'Anybody', sans-serif", fontVariationSettings: "'wdth' 100" }}>
+                      <p className="leading-[1.1] whitespace-pre">MATT HICKS</p>
+                    </div>
                   </div>
                 </Link>
               </div>
@@ -55,7 +56,7 @@ export default function FigmaNavigation() {
                 <div className="content-stretch flex gap-4 items-start justify-start relative shrink-0">
                   <Link 
                     href="/contact" 
-                    className="bg-[#103e39] box-border content-stretch flex gap-2 items-center justify-center px-6 py-2.5 relative rounded-[100px] shrink-0 hover:bg-[#0d332f] hover:scale-105 transition-all duration-300"
+                    className="bg-[#103e39] box-border content-stretch flex gap-2 items-center justify-center px-5 py-2 relative rounded-[100px] shrink-0 hover:bg-[#0d332f] hover:scale-105 transition-all duration-300"
                   >
                     <div 
                       className="font-bold leading-[0] not-italic relative shrink-0 text-[#ffffff] text-[18px] text-nowrap" 
@@ -85,14 +86,14 @@ export default function FigmaNavigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden px-16 mt-2">
+        <div className="lg:hidden px-3 mt-2">
           <div 
             className="w-full rounded-[32px] px-6 py-4 space-y-4"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.15)',
               backdropFilter: 'blur(20px) saturate(150%)',
               WebkitBackdropFilter: 'blur(20px) saturate(150%)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
             }}
           >
             <Link 
